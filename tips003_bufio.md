@@ -107,7 +107,7 @@ func ReadLine(reader io.Reader) (line []byte, err error) {
 
 逐字节的调用Read方法显然效率会极低，所以显然这里需要用一个缓冲区来预读和解析以及缓冲残余数据。
 
-这种情况很常见，比如HTTP协议就是一个机遇换行的文本协议，所以`bufio.Reader`直接就内置了`ReadLine`等一些列用于文本协议解析的方法。
+这种情况很常见，比如HTTP协议就是一个基于换行的文本协议，所以`bufio.Reader`直接就内置了`ReadLine`等一些列用于文本协议解析的方法。
 
 如果`bufio.Reader`还无法满足你的复杂协议解析需求，`bufio`还另外提供了`Scanner`来实现自定义的格式解析。
 
