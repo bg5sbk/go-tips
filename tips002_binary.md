@@ -99,7 +99,7 @@ func main() {
 
         s2.Unmarshal(s1.Marshal())
 
-	fmt.Println(s1, s2)
+        fmt.Println(s1, s2)
 }
 
 type MyStruct struct {
@@ -144,8 +144,8 @@ func (s *MyStruct) Unmarshal(b []byte) {
         s.Field1 = int32(binary.BigEndian.Uint32(b[n:]))
         n += 4
 
-	x := int(binary.BigEndian.Uint16(b[n:]))
-	n += 2
+        x := int(binary.BigEndian.Uint16(b[n:]))
+        n += 2
 	
         s.Field2 = string(b[n : n + x])
         n += x
