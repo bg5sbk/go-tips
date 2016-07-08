@@ -86,7 +86,7 @@ func (s *Session) Send(p []byte) error {
 
 为了防止极端情况下chan的缓冲区满发生阻塞影响到业务，我们利用select语法的特性来做到不阻塞并返回错误。
 
-io包除了`io.Reader`和`io.Writer`外，还有很多很有用的内容，比如`io.Copy`，通过阅读底层实现代码，你会发现`io.Copy`不仅仅是简单的从一个`io.Reader`读区数据写入`io.Writer`，当要通过`net.Conn`发送一个文件时，它其实会利用Linux的`SendFile`机制做到零拷贝。
+io包除了`io.Reader`和`io.Writer`外，还有很多很有用的内容，比如`io.Copy`，通过阅读底层实现代码，你会发现`io.Copy`不仅仅是简单的从一个`io.Reader`读取数据写入`io.Writer`，当要通过`net.Conn`发送一个文件时，它其实会利用Linux的`SendFile`机制做到零拷贝。
 
 这篇文章没办法一一例举和说明io包的所有内容，也无法代替包的文档，请大家务必要自己仔细阅读包的文档（其实文档第二段就非常关键，不要假定这些调用是线程安全的）。
 
